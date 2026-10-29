@@ -1,455 +1,601 @@
 ---
-import Navbar from "../components/navbar.astro";
-import Footer from "../components/footer.astro";
-import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
 
-const areas = [
+const batallas = [
 	{
+		numero: "01",
+		icono: "🔥",
+		titulo: "Batallas de rap",
+		descripcion:
+			"Enfrentamientos llenos de energía, ingenio y grandes rimas.",
+		enlace: "#batallas",
+	},
+	{
+		numero: "02",
 		icono: "🎤",
-		titulo: "Batallas de freestyle",
+		titulo: "Freestyle",
 		descripcion:
-			"Descubre cómo los MC se enfrentan con ingenio, improvisación y rimas que sorprenden al público.",
-		enlace: "/blog",
-		clase: "rosa",
+			"El arte de improvisar, responder y sorprender con creatividad.",
+		enlace: "#freestyle",
 	},
 	{
-		icono: "🎧",
-		titulo: "Cultura hip-hop",
-		descripcion:
-			"Conoce la música, el arte urbano y las expresiones culturales que dan vida al movimiento hip-hop.",
-		enlace: "/sobre-mi",
-		clase: "celeste",
-	},
-	{
+		numero: "03",
 		icono: "🏆",
-		titulo: "Grandes competiciones",
+		titulo: "Campeones",
 		descripcion:
-			"Explora los torneos, los enfrentamientos memorables y los talentos que destacan en el freestyle.",
-		enlace: "/blog",
-		clase: "amarillo",
+			"Conoce el talento y la pasión de los grandes exponentes del rap.",
+		enlace: "#campeones",
 	},
 ];
 ---
 
-<Navbar />
+<Layout title="Zona Freestyle | Batallas de Rap">
+	<header class="encabezado">
+		<a class="logo" href="#inicio">ZONA <span>FREESTYLE</span></a>
 
-<main id="inicio">
-	<section class="hero">
-		<div class="hero-contenido">
-			<p class="etiqueta">⚡ BIENVENIDO AL MUNDO DEL FREESTYLE ⚡</p>
-			<h1>RIMAS QUE IMPACTAN.<span>BARRAS QUE HACEN HISTORIA.</span></h1>
-			<p class="introduccion">
-				El escenario está listo. Descubre las batallas de rap, conoce la
-				cultura urbana y déjate llevar por la creatividad de quienes
-				convierten cada palabra en un espectáculo.
-			</p>
-			<div class="acciones">
-				<a class="boton boton-blanco" href="/blog">Explorar el blog →</a
-				>
-				<a class="boton boton-borde" href="/sobre-mi"
-					>Conocer la cultura</a
-				>
+		<nav aria-label="Menú principal">
+			<a href="#inicio">Inicio</a>
+			<a href="#batallas">Batallas</a>
+			<a href="#freestyle">Freestyle</a>
+			<a href="#campeones">Campeones</a>
+		</nav>
+	</header>
+
+	<main>
+		<section class="portada" id="inicio">
+			<div class="portada-contenido">
+				<p class="etiqueta">🎤 CULTURA URBANA · RIMAS · TALENTO</p>
+
+				<h1>EL PODER DE LA <span>PALABRA</span></h1>
+
+				<p class="introduccion">
+					El escenario está listo. Descubre las batallas de rap,
+					conoce la cultura urbana y déjate llevar por la creatividad
+					de quienes convierten cada palabra en un espectáculo.
+				</p>
+
+				<div class="botones">
+					<a class="boton boton-principal" href="#batallas"
+						>Explorar batallas ↗</a
+					>
+					<a class="boton boton-secundario" href="#freestyle"
+						>Conocer el freestyle</a
+					>
+				</div>
+
+				<div class="estadisticas">
+					<div>
+						<strong>100 %</strong>
+						<span>Creatividad</span>
+					</div>
+					<div>
+						<strong>1 VS 1</strong>
+						<span>Competencia</span>
+					</div>
+					<div>
+						<strong>∞</strong>
+						<span>Imaginación</span>
+					</div>
+				</div>
 			</div>
-			<div class="frase">
-				<span>IMPROVISACIÓN</span><b>✦</b><span>CREATIVIDAD</span><b
-					>✦</b
-				><span>ACTITUD</span>
+
+			<div class="portada-arte" aria-label="Decoración de micrófono">
+				<div class="circulo circulo-grande"></div>
+				<div class="circulo circulo-pequeno"></div>
+				<div class="microfono">🎤</div>
+
+				<div class="arte-texto">
+					RIMA<br />
+					CON<br />
+					<span>ACTITUD</span>
+				</div>
+
+				<span class="estrella estrella-uno">✦</span>
+				<span class="estrella estrella-dos">✧</span>
+
+				<div class="sello">FLOW<br />LIBRE</div>
 			</div>
-		</div>
-		<div class="hero-arte" aria-label="Micrófono de rap decorativo">
-			<span class="corona">♛</span>
-			<div class="microfono">🎤</div>
-			<span class="rap">¡RAP!</span>
-			<span class="calle">LA CALLE<br />TAMBIÉN ES<br />ESCENARIO</span>
-			<span class="destello destello-uno">✦</span>
-			<span class="destello destello-dos">✧</span>
-		</div>
-	</section>
+		</section>
 
-	<section class="cultura">
-		<div class="encabezado-seccion">
-			<div>
-				<p class="etiqueta etiqueta-rosa">MUCHO MÁS QUE RIMAS</p>
-				<h2>La cultura que mueve <span>el escenario.</span></h2>
+		<section class="seccion" id="batallas">
+			<div class="titulo-seccion">
+				<p class="etiqueta">DESCUBRE ESTE UNIVERSO</p>
+				<h2>EL MUNDO DEL <span>RAP</span></h2>
+				<p>Ritmo, ingenio y pasión en cada enfrentamiento.</p>
 			</div>
-			<p class="texto-intro">
-				El freestyle es una forma de expresión que combina ritmo,
-				ingenio, confianza y pasión. Cada batalla es una oportunidad
-				para demostrar talento, creatividad y personalidad.
-			</p>
-		</div>
 
-		<div class="rejilla">
-			{
-				areas.map((area) => (
-					<article class={`tarjeta-area ${area.clase}`}>
-						<div class="icono-area" aria-hidden="true">
-							{area.icono}
-						</div>
-						<h3>{area.titulo}</h3>
-						<p>{area.descripcion}</p>
-						<a href={area.enlace}>Ver más →</a>
-						<span class="decoracion" aria-hidden="true">
-							✦
-						</span>
-					</article>
-				))
-			}
-		</div>
-	</section>
+			<div class="tarjetas">
+				{
+					batallas.map((batalla) => (
+						<article class="tarjeta">
+							<div class="tarjeta-superior">
+								<span class="numero">{batalla.numero}</span>
+								<span class="icono">{batalla.icono}</span>
+							</div>
 
-	<section class="banner">
-		<div class="banner-corona" aria-hidden="true">♛</div>
-		<div class="banner-titulo">
-			<h2>¿LISTO PARA ENTRAR <span>EN EL UNIVERSO DEL RAP?</span></h2>
-		</div>
-		<div class="banner-texto">
-			<p>
-				Aprende, descubre nuevos talentos y disfruta de una cultura en
-				la que cada rima puede marcar la diferencia.
-			</p>
-			<a class="boton boton-blanco" href="/contacto">Contáctanos ✉</a>
-		</div>
-	</section>
-</main>
+							<h3>{batalla.titulo}</h3>
+							<p>{batalla.descripcion}</p>
 
-<Footer />
+							<a class="enlace-tarjeta" href={batalla.enlace}>
+								Descubrir más →
+							</a>
+						</article>
+					))
+				}
+			</div>
+		</section>
+
+		<section class="seccion freestyle" id="freestyle">
+			<div class="freestyle-icono">🎧</div>
+
+			<div class="freestyle-contenido">
+				<p class="etiqueta">SIN GUIONES, SIN LÍMITES</p>
+				<h2>¿QUÉ ES EL <span>FREESTYLE?</span></h2>
+
+				<p>
+					El freestyle es una forma de expresión en la que los
+					participantes improvisan rimas en el momento. Para destacar,
+					utilizan su ingenio, ritmo, memoria y capacidad de
+					respuesta.
+				</p>
+
+				<p>
+					Cada batalla es diferente. La creatividad, la confianza y el
+					respeto son parte importante de la cultura del rap.
+				</p>
+			</div>
+		</section>
+
+		<section class="seccion campeones" id="campeones">
+			<p class="etiqueta">EL TALENTO MARCA LA DIFERENCIA</p>
+			<h2>EL ESCENARIO ES <span>TUYO</span></h2>
+			<p>Descubre, aprende y disfruta de la cultura urbana.</p>
+			<a href="#inicio" class="boton boton-principal"
+				>Volver al inicio ↑</a
+			>
+		</section>
+	</main>
+
+	<footer class="pie">
+		<a class="logo" href="#inicio">ZONA <span>FREESTYLE</span></a>
+		<p>La cultura se expresa con palabras. 🎤</p>
+		<p class="copyright">© 2026 Zona Freestyle · Proyecto educativo</p>
+	</footer>
+</Layout>
 
 <style>
-	.hero {
-		position: relative;
-		display: grid;
-		grid-template-columns: 1.15fr 0.85fr;
+	:global(:root) {
+		--fondo: #10091f;
+		--panel: #211333;
+		--rosa: #ff36a8;
+		--morado: #a855f7;
+		--celeste: #42e8ff;
+		--blanco: #ffffff;
+		--texto: #e4dced;
+	}
+
+	.encabezado {
+		position: sticky;
+		top: 0;
+		z-index: 10;
+		display: flex;
 		align-items: center;
-		min-height: 450px;
-		margin-top: 0.8rem;
-		padding: 3rem 2.7rem;
-		overflow: hidden;
-		border-radius: 0 0 28px 28px;
-		background: linear-gradient(
-			115deg,
-			#ff0095 0%,
-			#ff315e 40%,
-			#ffb800 72%,
-			#00cfff 100%
-		);
-		color: white;
+		justify-content: space-between;
+		gap: 25px;
+		padding: 20px 7%;
+		background: #170e29;
+		border-bottom: 1px solid #43275d;
 	}
-	.hero-contenido {
-		position: relative;
-		z-index: 2;
-	}
-	.etiqueta {
-		display: inline-block;
-		margin: 0 0 1rem;
-		padding: 0.4rem 0.8rem;
-		background: #fff000;
-		color: #211039;
-		font-size: 0.78rem;
+
+	.logo {
+		color: var(--blanco);
+		font-size: 1.2rem;
 		font-weight: 900;
-		letter-spacing: 0.4px;
-		transform: rotate(-1deg);
+		letter-spacing: -1px;
+		white-space: nowrap;
 	}
-	.hero h1 {
-		margin: 0.3rem 0 1rem;
-		color: white;
-		font-size: clamp(2.4rem, 4.8vw, 4.4rem);
-		line-height: 1.02;
-		letter-spacing: -2px;
-		font-weight: 900;
-		text-shadow: 0 4px 0 #b90068;
+
+	.logo span {
+		color: var(--rosa);
 	}
-	.hero h1 span {
-		display: block;
-		color: #fff000;
-		text-shadow: 0 4px 0 #d84900;
-	}
-	.introduccion {
-		max-width: 580px;
-		color: white;
-		font-weight: 600;
-		line-height: 1.65;
-	}
-	.acciones {
+
+	nav {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 0.8rem;
-		margin-top: 1.5rem;
+		gap: 24px;
 	}
+
+	nav a {
+		color: var(--texto);
+		font-size: 0.85rem;
+		font-weight: bold;
+		transition: color 0.2s;
+	}
+
+	nav a:hover {
+		color: var(--celeste);
+	}
+
+	.portada {
+		display: grid;
+		grid-template-columns: 1.1fr 0.9fr;
+		align-items: center;
+		gap: 35px;
+		min-height: 610px;
+		padding: 65px 8%;
+		overflow: hidden;
+		background:
+			radial-gradient(ellipse at 85% 45%, #62218c 0%, transparent 40%),
+			radial-gradient(ellipse at 10% 10%, #401451 0%, transparent 40%),
+			var(--fondo);
+	}
+
+	.portada-contenido {
+		max-width: 650px;
+	}
+
+	.etiqueta {
+		color: var(--celeste);
+		font-size: 0.76rem;
+		font-weight: 800;
+		letter-spacing: 1.7px;
+	}
+
+	h1 {
+		margin: 20px 0;
+		font-size: clamp(2.8rem, 6vw, 5.3rem);
+		font-weight: 900;
+		line-height: 1.05;
+		letter-spacing: -2px;
+	}
+
+	h1 span,
+	h2 span {
+		color: var(--rosa);
+	}
+
+	.introduccion {
+		max-width: 560px;
+		color: var(--texto);
+		font-size: 1rem;
+	}
+
+	.botones {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 14px;
+		margin-top: 28px;
+	}
+
 	.boton {
 		display: inline-block;
-		padding: 0.85rem 1.3rem;
-		border-radius: 40px;
-		font-weight: 900;
-		text-decoration: none;
-		transition: transform 0.2s;
-	}
-	.boton:hover {
-		transform: translateY(-3px);
-	}
-	.boton-blanco {
-		background: white;
-		color: #ed007e;
-	}
-	.boton-borde {
-		border: 2px solid white;
-		color: white;
-	}
-	.frase {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.8rem;
-		margin-top: 2rem;
-		color: white;
-		font-size: 0.72rem;
-		font-weight: 900;
-		letter-spacing: 1.4px;
-	}
-	.frase b {
-		color: #fff000;
-	}
-	.hero-arte {
-		position: relative;
-		display: grid;
-		place-items: center;
-		min-height: 340px;
-	}
-	.microfono {
-		display: grid;
-		place-items: center;
-		width: min(260px, 80%);
-		aspect-ratio: 1;
-		border: 7px solid white;
-		border-radius: 50%;
-		background: linear-gradient(145deg, #702cff, #00cfff);
-		font-size: clamp(6rem, 12vw, 9rem);
-		transform: rotate(-9deg);
-		box-shadow:
-			12px 15px 0 #ff007f,
-			0 20px 40px #5c003e55;
-	}
-	.rap {
-		position: absolute;
-		right: 0;
-		bottom: 30px;
-		color: white;
-		font-size: clamp(2.5rem, 5vw, 4rem);
-		font-weight: 900;
-		font-style: italic;
-		transform: rotate(-10deg);
-		text-shadow: 4px 4px 0 #702cff;
-	}
-	.corona {
-		position: absolute;
-		top: 0;
-		right: 12%;
-		color: #fff000;
-		font-size: 5rem;
-		transform: rotate(10deg);
-	}
-	.calle {
-		position: absolute;
-		right: -5px;
-		bottom: 5px;
-		padding: 0.8rem;
-		background: #fff000;
-		color: #251039;
-		font-size: 0.7rem;
-		font-weight: 900;
-		text-align: center;
-		transform: rotate(7deg);
-	}
-	.destello {
-		position: absolute;
-		color: white;
-		font-size: 3rem;
-	}
-	.destello-uno {
-		left: 5%;
-		top: 12%;
-	}
-	.destello-dos {
-		left: 8%;
-		bottom: 15%;
-		color: #fff000;
-	}
-	.cultura {
-		padding: 3.5rem 0 2rem;
-	}
-	.encabezado-seccion {
-		display: grid;
-		grid-template-columns: 1fr 0.85fr;
-		align-items: center;
-		gap: 2rem;
-		margin-bottom: 1.8rem;
-	}
-	.etiqueta-rosa {
-		background: #ff3cac;
-		color: white;
-	}
-	.encabezado-seccion h2 {
-		margin: 0;
-		color: #20103f;
-		font-size: clamp(2rem, 4vw, 3rem);
-		line-height: 1.1;
-	}
-	.encabezado-seccion h2 span {
-		display: block;
-		color: #ff007f;
-		font-style: italic;
-	}
-	.texto-intro {
-		color: #392b55;
-		line-height: 1.8;
-	}
-	.rejilla {
-		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: 1.1rem;
-	}
-	.tarjeta-area {
-		position: relative;
-		overflow: hidden;
-		padding: 1.4rem;
-		border: 2px solid;
-		border-radius: 18px;
-		background: white;
+		padding: 13px 20px;
+		border-radius: 10px;
+		font-size: 0.85rem;
+		font-weight: 800;
 		transition:
 			transform 0.2s,
 			box-shadow 0.2s;
 	}
-	.tarjeta-area:hover {
-		transform: translateY(-6px);
-		box-shadow: 0 12px 28px #702cff20;
+
+	.boton:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 8px 25px #ff36a850;
 	}
-	.tarjeta-area.rosa {
-		border-color: #ff0095;
-		background: linear-gradient(145deg, #fff, #fff0f8);
+
+	.boton-principal {
+		background: linear-gradient(110deg, var(--rosa), var(--morado));
+		color: var(--blanco);
 	}
-	.tarjeta-area.celeste {
-		border-color: #00cfff;
-		background: linear-gradient(145deg, #fff, #e8fbff);
+
+	.boton-secundario {
+		border: 1px solid var(--morado);
+		background: #ffffff08;
 	}
-	.tarjeta-area.amarillo {
-		border-color: #ffc400;
-		background: linear-gradient(145deg, #fff, #fffbe5);
+
+	.estadisticas {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 34px;
+		margin-top: 38px;
 	}
-	.icono-area {
-		display: grid;
-		place-items: center;
-		width: 62px;
-		height: 62px;
-		border-radius: 50%;
-		background: #ff0095;
-		font-size: 2rem;
+
+	.estadisticas div {
+		display: flex;
+		flex-direction: column;
 	}
-	.celeste .icono-area {
-		background: #00cfff;
+
+	.estadisticas strong {
+		color: var(--celeste);
+		font-size: 1.35rem;
 	}
-	.amarillo .icono-area {
-		background: #ffc400;
+
+	.estadisticas span {
+		color: #cbbfda;
+		font-size: 0.76rem;
 	}
-	.tarjeta-area h3 {
-		margin: 0.9rem 0 0.5rem;
-		color: #251039;
-		font-size: 1.2rem;
-		text-transform: uppercase;
-	}
-	.tarjeta-area p {
-		color: #392b55;
-		line-height: 1.6;
-	}
-	.tarjeta-area a {
-		display: inline-block;
-		margin-top: 0.5rem;
-		color: #e9007a;
-		font-weight: 900;
-		text-decoration: none;
-	}
-	.celeste a {
-		color: #008fb7;
-	}
-	.amarillo a {
-		color: #a66b00;
-	}
-	.decoracion {
-		position: absolute;
-		top: 8px;
-		right: 15px;
-		color: #ff0095;
-		font-size: 3rem;
-		opacity: 0.3;
-	}
-	.celeste .decoracion {
-		color: #00bde8;
-	}
-	.amarillo .decoracion {
-		color: #e6b800;
-	}
-	.banner {
-		display: grid;
-		grid-template-columns: auto 1.1fr 1fr;
+
+	.portada-arte {
+		position: relative;
+		display: flex;
 		align-items: center;
-		gap: 1.2rem;
-		margin: 2rem 0 3rem;
-		padding: 1.7rem;
-		border: 3px solid white;
-		border-radius: 22px;
-		background: linear-gradient(110deg, #4214ff, #d900e8, #ff007f, #ffb800);
-		color: white;
+		justify-content: center;
+		min-height: 390px;
 	}
-	.banner-corona {
-		color: #fff000;
-		font-size: 3.5rem;
+
+	.circulo {
+		position: absolute;
+		border-radius: 50%;
 	}
-	.banner-titulo h2 {
-		margin: 0;
-		color: white;
-		font-size: clamp(1.3rem, 2.5vw, 2rem);
-		font-style: italic;
-		line-height: 1.15;
+
+	.circulo-grande {
+		width: 300px;
+		height: 300px;
+		border: 2px solid #ff36a880;
+		background: linear-gradient(145deg, #ff36a845, #a855f735);
+		box-shadow: 0 0 65px #a855f740;
 	}
-	.banner-titulo h2 span {
-		display: block;
-		color: #fff000;
+
+	.circulo-pequeno {
+		width: 235px;
+		height: 235px;
+		border: 2px dashed #42e8ff99;
 	}
-	.banner-texto p {
-		color: white;
-		line-height: 1.6;
+
+	.microfono {
+		position: absolute;
+		top: 22px;
+		right: 22px;
+		font-size: 4rem;
+		transform: rotate(15deg);
+		filter: drop-shadow(0 0 18px #ff36a8);
 	}
+
+	.arte-texto {
+		z-index: 1;
+		font-size: 2.7rem;
+		font-weight: 900;
+		line-height: 1.1;
+		text-align: center;
+		transform: rotate(-8deg);
+		text-shadow: 4px 5px 0 #a855f7;
+	}
+
+	.arte-texto span {
+		color: var(--celeste);
+	}
+
+	.estrella {
+		position: absolute;
+		color: var(--rosa);
+		font-size: 3rem;
+	}
+
+	.estrella-uno {
+		top: 30px;
+		left: 12px;
+	}
+
+	.estrella-dos {
+		right: 5px;
+		bottom: 30px;
+		color: var(--celeste);
+	}
+
+	.sello {
+		position: absolute;
+		bottom: 20px;
+		left: 12px;
+		padding: 14px;
+		border: 2px solid var(--celeste);
+		border-radius: 50%;
+		color: var(--celeste);
+		font-size: 0.7rem;
+		font-weight: 900;
+		line-height: 1.4;
+		text-align: center;
+		transform: rotate(-12deg);
+	}
+
+	.seccion {
+		padding: 80px 8%;
+	}
+
+	.titulo-seccion {
+		max-width: 650px;
+		margin: 0 auto 40px;
+		text-align: center;
+	}
+
+	h2 {
+		margin: 12px 0;
+		font-size: clamp(2rem, 4vw, 3rem);
+		font-weight: 900;
+		line-height: 1.2;
+	}
+
+	.titulo-seccion > p:last-child,
+	.campeones > p:not(.etiqueta),
+	.freestyle-contenido > p:not(.etiqueta) {
+		color: var(--texto);
+	}
+
+	.tarjetas {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 22px;
+	}
+
+	.tarjeta {
+		padding: 25px;
+		border: 1px solid #563476;
+		border-radius: 18px;
+		background: linear-gradient(145deg, #2a1742, #191128);
+		transition:
+			transform 0.25s,
+			border-color 0.25s;
+	}
+
+	.tarjeta:hover {
+		transform: translateY(-7px);
+		border-color: var(--rosa);
+	}
+
+	.tarjeta-superior {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.numero {
+		color: var(--celeste);
+		font-size: 0.85rem;
+		font-weight: 900;
+	}
+
+	.icono {
+		font-size: 2.1rem;
+	}
+
+	.tarjeta h3 {
+		margin: 20px 0 10px;
+		font-size: 1.2rem;
+	}
+
+	.tarjeta p {
+		min-height: 85px;
+		color: var(--texto);
+		font-size: 0.88rem;
+	}
+
+	.enlace-tarjeta {
+		display: inline-block;
+		margin-top: 10px;
+		color: var(--rosa);
+		font-size: 0.85rem;
+		font-weight: 800;
+	}
+
+	.freestyle {
+		display: grid;
+		grid-template-columns: 0.35fr 1fr;
+		align-items: center;
+		gap: 40px;
+		border-top: 1px solid #563476;
+		border-bottom: 1px solid #563476;
+		background: linear-gradient(110deg, #29103e, #171027);
+	}
+
+	.freestyle-icono {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 150px;
+		height: 150px;
+		border: 2px solid var(--rosa);
+		border-radius: 35px;
+		background: linear-gradient(145deg, #ff36a835, #a855f735);
+		font-size: 4rem;
+		box-shadow: 0 0 35px #a855f730;
+	}
+
+	.campeones {
+		text-align: center;
+		background:
+			radial-gradient(ellipse at center, #57217c55, transparent 65%),
+			var(--fondo);
+	}
+
+	.campeones .boton {
+		margin-top: 15px;
+	}
+
+	.pie {
+		padding: 35px 7%;
+		border-top: 1px solid #392252;
+		background: #170e29;
+		text-align: center;
+	}
+
+	.pie p {
+		color: var(--texto);
+		font-size: 0.85rem;
+	}
+
+	.pie .copyright {
+		margin-top: 20px;
+		color: #9385a9;
+		font-size: 0.75rem;
+	}
+
 	@media (max-width: 800px) {
-		.hero {
+		.encabezado {
+			flex-direction: column;
+		}
+
+		nav {
+			justify-content: center;
+			gap: 14px;
+		}
+
+		.portada {
 			grid-template-columns: 1fr;
-			padding: 2.2rem 1.4rem;
+			padding: 50px 7%;
 		}
-		.hero-arte {
-			min-height: 260px;
+
+		.portada-arte {
+			min-height: 340px;
 		}
-		.microfono {
-			width: 190px;
-		}
-		.encabezado-seccion {
-			grid-template-columns: 1fr;
-			gap: 0.5rem;
-		}
-		.rejilla {
+
+		.tarjetas {
 			grid-template-columns: 1fr;
 		}
-		.banner {
-			grid-template-columns: auto 1fr;
+
+		.tarjeta p {
+			min-height: 0;
 		}
-		.banner-texto {
-			grid-column: 1 / -1;
+
+		.freestyle {
+			grid-template-columns: 1fr;
 		}
-	}
-	@media (max-width: 480px) {
-		.hero h1 {
-			font-size: 2.4rem;
+
+		.freestyle-icono {
+			width: 110px;
+			height: 110px;
+			font-size: 3rem;
+		}
+
+		h1 {
 			letter-spacing: -1px;
 		}
-		.frase {
-			font-size: 0.65rem;
-			gap: 0.45rem;
+	}
+
+	@media (max-width: 420px) {
+		.botones {
+			flex-direction: column;
+		}
+
+		.boton {
+			text-align: center;
+		}
+
+		.estadisticas {
+			justify-content: space-between;
+			gap: 15px;
+		}
+
+		.circulo-grande {
+			width: 250px;
+			height: 250px;
+		}
+
+		.circulo-pequeno {
+			width: 195px;
+			height: 195px;
+		}
+
+		.arte-texto {
+			font-size: 2.2rem;
 		}
 	}
 </style>
