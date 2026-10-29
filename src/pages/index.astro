@@ -9,24 +9,24 @@ const areas = [
 		titulo: "Batallas de freestyle",
 		descripcion:
 			"Descubre cómo los MC se enfrentan con ingenio, improvisación y rimas que sorprenden al público.",
-		color: "#ff007f",
 		enlace: "/blog",
+		clase: "rosa",
 	},
 	{
 		icono: "🎧",
 		titulo: "Cultura hip-hop",
 		descripcion:
 			"Conoce la música, el arte urbano y las expresiones culturales que dan vida al movimiento hip-hop.",
-		color: "#00bde8",
 		enlace: "/sobre-mi",
+		clase: "celeste",
 	},
 	{
 		icono: "🏆",
 		titulo: "Grandes competiciones",
 		descripcion:
 			"Explora los torneos, los enfrentamientos memorables y los talentos que destacan en el freestyle.",
-		color: "#e6b800",
 		enlace: "/blog",
+		clase: "amarillo",
 	},
 ];
 ---
@@ -37,62 +37,41 @@ const areas = [
 	<section class="hero">
 		<div class="hero-contenido">
 			<p class="etiqueta">⚡ BIENVENIDO AL MUNDO DEL FREESTYLE ⚡</p>
-
-			<h1>
-				RIMAS QUE IMPACTAN.
-				<span>BARRAS QUE HACEN HISTORIA.</span>
-			</h1>
-
+			<h1>RIMAS QUE IMPACTAN.<span>BARRAS QUE HACEN HISTORIA.</span></h1>
 			<p class="introduccion">
 				El escenario está listo. Descubre las batallas de rap, conoce la
 				cultura urbana y déjate llevar por la creatividad de quienes
 				convierten cada palabra en un espectáculo.
 			</p>
-
 			<div class="acciones">
-				<a class="boton boton-principal" href="/blog">
-					Explorar el blog ↗
-				</a>
-
-				<a class="boton boton-secundario" href="/sobre-mi">
-					Conocer la cultura
-				</a>
+				<a class="boton boton-blanco" href="/blog">Explorar el blog →</a
+				>
+				<a class="boton boton-borde" href="/sobre-mi"
+					>Conocer la cultura</a
+				>
 			</div>
-
 			<div class="frase">
-				<span>IMPROVISACIÓN</span>
-				<span>✦</span>
-				<span>CREATIVIDAD</span>
-				<span>✦</span>
-				<span>ACTITUD</span>
+				<span>IMPROVISACIÓN</span><b>✦</b><span>CREATIVIDAD</span><b
+					>✦</b
+				><span>ACTITUD</span>
 			</div>
 		</div>
-
-		<div
-			class="hero-arte"
-			aria-label="Ilustración decorativa de un micrófono"
-		>
-			<span class="estrella estrella-uno">✦</span>
-			<span class="estrella estrella-dos">✧</span>
-			<span class="microfono" aria-hidden="true">🎤</span>
-			<span class="palabra-rap">RAP!</span>
-			<span class="circulo circulo-uno"></span>
-			<span class="circulo circulo-dos"></span>
+		<div class="hero-arte" aria-label="Micrófono de rap decorativo">
+			<span class="corona">♛</span>
+			<div class="microfono">🎤</div>
+			<span class="rap">¡RAP!</span>
+			<span class="calle">LA CALLE<br />TAMBIÉN ES<br />ESCENARIO</span>
+			<span class="destello destello-uno">✦</span>
+			<span class="destello destello-dos">✧</span>
 		</div>
-
-		<div class="sello">RITMO<br />Y ACTITUD</div>
 	</section>
 
-	<section class="cultura" id="cultura">
+	<section class="cultura">
 		<div class="encabezado-seccion">
 			<div>
 				<p class="etiqueta etiqueta-rosa">MUCHO MÁS QUE RIMAS</p>
-				<h2>
-					La cultura que mueve
-					<span>el escenario.</span>
-				</h2>
+				<h2>La cultura que mueve <span>el escenario.</span></h2>
 			</div>
-
 			<p class="texto-intro">
 				El freestyle es una forma de expresión que combina ritmo,
 				ingenio, confianza y pasión. Cada batalla es una oportunidad
@@ -103,25 +82,14 @@ const areas = [
 		<div class="rejilla">
 			{
 				areas.map((area) => (
-					<article
-						class="tarjeta-area"
-						style={`--acento: ${area.color}`}
-					>
+					<article class={`tarjeta-area ${area.clase}`}>
 						<div class="icono-area" aria-hidden="true">
 							{area.icono}
 						</div>
-
-						<p class="numero-area">FREESTYLE CLUB</p>
-
 						<h3>{area.titulo}</h3>
-
-						<p class="descripcion-area">{area.descripcion}</p>
-
-						<a class="enlace-area" href={area.enlace}>
-							Descubrir más <span aria-hidden="true">→</span>
-						</a>
-
-						<span class="decoracion-area" aria-hidden="true">
+						<p>{area.descripcion}</p>
+						<a href={area.enlace}>Ver más →</a>
+						<span class="decoracion" aria-hidden="true">
 							✦
 						</span>
 					</article>
@@ -131,20 +99,16 @@ const areas = [
 	</section>
 
 	<section class="banner">
-		<div class="banner-icono" aria-hidden="true">👑</div>
-
+		<div class="banner-corona" aria-hidden="true">♛</div>
 		<div class="banner-titulo">
-			<p>EL ESCENARIO TE ESPERA</p>
-			<h2>¿Listo para entrar en el universo del rap?</h2>
+			<h2>¿LISTO PARA ENTRAR <span>EN EL UNIVERSO DEL RAP?</span></h2>
 		</div>
-
 		<div class="banner-texto">
 			<p>
 				Aprende, descubre nuevos talentos y disfruta de una cultura en
 				la que cada rima puede marcar la diferencia.
 			</p>
-
-			<a class="boton boton-blanco" href="/contacto"> Contáctanos ✉ </a>
+			<a class="boton boton-blanco" href="/contacto">Contáctanos ✉</a>
 		</div>
 	</section>
 </main>
@@ -155,430 +119,337 @@ const areas = [
 	.hero {
 		position: relative;
 		display: grid;
-		grid-template-columns: 1.25fr 0.75fr;
+		grid-template-columns: 1.15fr 0.85fr;
 		align-items: center;
-		gap: 1rem;
-		min-height: 570px;
-		margin-top: 1rem;
-		padding: 3.5rem;
+		min-height: 450px;
+		margin-top: 0.8rem;
+		padding: 3rem 2.7rem;
 		overflow: hidden;
-		border: 3px solid #ffffff;
-		border-radius: 32px;
+		border-radius: 0 0 28px 28px;
 		background: linear-gradient(
-			125deg,
+			115deg,
 			#ff0095 0%,
-			#ff416c 45%,
-			#ff9d00 100%
+			#ff315e 40%,
+			#ffb800 72%,
+			#00cfff 100%
 		);
-		box-shadow: 0 20px 55px #ff007f25;
+		color: white;
 	}
-
 	.hero-contenido {
 		position: relative;
 		z-index: 2;
 	}
-
 	.etiqueta {
 		display: inline-block;
 		margin: 0 0 1rem;
-		padding: 0.4rem 0.9rem;
-		border-radius: 5px;
+		padding: 0.4rem 0.8rem;
 		background: #fff000;
-		color: #281039;
+		color: #211039;
 		font-size: 0.78rem;
 		font-weight: 900;
-		letter-spacing: 0.5px;
+		letter-spacing: 0.4px;
+		transform: rotate(-1deg);
 	}
-
 	.hero h1 {
-		margin: 0.5rem 0 1.2rem;
-		color: #ffffff;
-		font-size: clamp(2.5rem, 5vw, 4.5rem);
-		font-weight: 900;
-		line-height: 1.03;
+		margin: 0.3rem 0 1rem;
+		color: white;
+		font-size: clamp(2.4rem, 4.8vw, 4.4rem);
+		line-height: 1.02;
 		letter-spacing: -2px;
-		overflow-wrap: anywhere;
-		text-shadow: 0 4px 0 #bf075c;
+		font-weight: 900;
+		text-shadow: 0 4px 0 #b90068;
 	}
-
 	.hero h1 span {
 		display: block;
-		margin-top: 0.4rem;
 		color: #fff000;
-		text-shadow: 0 4px 0 #d43a00;
+		text-shadow: 0 4px 0 #d84900;
 	}
-
 	.introduccion {
-		max-width: 610px;
-		color: #ffffff;
-		font-size: 1.02rem;
+		max-width: 580px;
+		color: white;
 		font-weight: 600;
-		line-height: 1.8;
+		line-height: 1.65;
 	}
-
 	.acciones {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 0.8rem;
-		margin-top: 1.8rem;
+		margin-top: 1.5rem;
 	}
-
 	.boton {
 		display: inline-block;
-		padding: 0.9rem 1.3rem;
-		border-radius: 50px;
+		padding: 0.85rem 1.3rem;
+		border-radius: 40px;
 		font-weight: 900;
-		text-align: center;
 		text-decoration: none;
-		transition:
-			transform 0.2s,
-			box-shadow 0.2s;
+		transition: transform 0.2s;
 	}
-
 	.boton:hover {
 		transform: translateY(-3px);
-		box-shadow: 0 8px 20px #46103e35;
 	}
-
-	.boton-principal {
-		border: 2px solid #ffffff;
-		background: #ffffff;
-		color: #e60073;
+	.boton-blanco {
+		background: white;
+		color: #ed007e;
 	}
-
-	.boton-secundario {
-		border: 2px solid #ffffff;
-		background: transparent;
-		color: #ffffff;
+	.boton-borde {
+		border: 2px solid white;
+		color: white;
 	}
-
 	.frase {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 0.7rem;
-		margin-top: 2.5rem;
-		color: #ffffff;
+		gap: 0.8rem;
+		margin-top: 2rem;
+		color: white;
 		font-size: 0.72rem;
 		font-weight: 900;
-		letter-spacing: 1.5px;
+		letter-spacing: 1.4px;
 	}
-
-	.frase span:nth-child(even) {
+	.frase b {
 		color: #fff000;
 	}
-
 	.hero-arte {
 		position: relative;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		min-height: 360px;
-	}
-
-	.microfono {
-		position: relative;
-		z-index: 2;
 		display: grid;
-		width: 245px;
-		height: 245px;
 		place-items: center;
-		border: 7px solid #ffffff;
-		border-radius: 50%;
-		background: linear-gradient(135deg, #702cff, #00cfff);
-		font-size: 8rem;
-		transform: rotate(-10deg);
-		box-shadow:
-			12px 18px 0 #ff007f,
-			0 20px 45px #6e073d45;
+		min-height: 340px;
 	}
-
-	.palabra-rap {
+	.microfono {
+		display: grid;
+		place-items: center;
+		width: min(260px, 80%);
+		aspect-ratio: 1;
+		border: 7px solid white;
+		border-radius: 50%;
+		background: linear-gradient(145deg, #702cff, #00cfff);
+		font-size: clamp(6rem, 12vw, 9rem);
+		transform: rotate(-9deg);
+		box-shadow:
+			12px 15px 0 #ff007f,
+			0 20px 40px #5c003e55;
+	}
+	.rap {
 		position: absolute;
-		z-index: 3;
 		right: 0;
-		bottom: 35px;
-		color: #ffffff;
+		bottom: 30px;
+		color: white;
 		font-size: clamp(2.5rem, 5vw, 4rem);
 		font-weight: 900;
 		font-style: italic;
 		transform: rotate(-10deg);
-		text-shadow: 4px 5px 0 #702cff;
+		text-shadow: 4px 4px 0 #702cff;
 	}
-
-	.estrella {
+	.corona {
 		position: absolute;
-		z-index: 3;
+		top: 0;
+		right: 12%;
 		color: #fff000;
-		font-size: 4rem;
-	}
-
-	.estrella-uno {
-		top: 12px;
-		right: 25px;
-	}
-
-	.estrella-dos {
-		bottom: 20px;
-		left: 8px;
-		color: #ffffff;
-	}
-
-	.circulo {
-		position: absolute;
-		width: 90px;
-		height: 90px;
-		border: 5px solid #fff000;
-		border-radius: 50%;
-	}
-
-	.circulo-uno {
-		top: 20px;
-		left: 10px;
-	}
-
-	.circulo-dos {
-		right: 5px;
-		bottom: 10px;
-		width: 55px;
-		height: 55px;
-		border-color: #00eaff;
-	}
-
-	.sello {
-		position: absolute;
-		right: 20px;
-		top: 18px;
-		padding: 0.7rem;
-		border: 2px solid #ffffff;
-		border-radius: 50%;
-		background: #fff000;
-		color: #251039;
-		font-size: 0.65rem;
-		font-weight: 900;
-		text-align: center;
+		font-size: 5rem;
 		transform: rotate(10deg);
 	}
-
-	.cultura {
-		padding: 5rem 0 3rem;
+	.calle {
+		position: absolute;
+		right: -5px;
+		bottom: 5px;
+		padding: 0.8rem;
+		background: #fff000;
+		color: #251039;
+		font-size: 0.7rem;
+		font-weight: 900;
+		text-align: center;
+		transform: rotate(7deg);
 	}
-
+	.destello {
+		position: absolute;
+		color: white;
+		font-size: 3rem;
+	}
+	.destello-uno {
+		left: 5%;
+		top: 12%;
+	}
+	.destello-dos {
+		left: 8%;
+		bottom: 15%;
+		color: #fff000;
+	}
+	.cultura {
+		padding: 3.5rem 0 2rem;
+	}
 	.encabezado-seccion {
 		display: grid;
-		grid-template-columns: 1fr 0.8fr;
+		grid-template-columns: 1fr 0.85fr;
 		align-items: center;
-		gap: 2.5rem;
-		margin-bottom: 2rem;
+		gap: 2rem;
+		margin-bottom: 1.8rem;
 	}
-
 	.etiqueta-rosa {
-		background: #ffdbf0;
-		color: #d90070;
+		background: #ff3cac;
+		color: white;
 	}
-
 	.encabezado-seccion h2 {
 		margin: 0;
-		color: #241039;
+		color: #20103f;
 		font-size: clamp(2rem, 4vw, 3rem);
+		line-height: 1.1;
 	}
-
 	.encabezado-seccion h2 span {
 		display: block;
 		color: #ff007f;
 		font-style: italic;
 	}
-
 	.texto-intro {
-		color: #51445f;
-		font-size: 1rem;
-		line-height: 1.9;
+		color: #392b55;
+		line-height: 1.8;
 	}
-
 	.rejilla {
 		display: grid;
 		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: 1.2rem;
+		gap: 1.1rem;
 	}
-
 	.tarjeta-area {
 		position: relative;
 		overflow: hidden;
-		padding: 1.6rem;
-		border: 2px solid var(--acento);
-		border-radius: 22px;
-		background: #ffffff;
-		box-shadow: 0 10px 25px #702cff0c;
+		padding: 1.4rem;
+		border: 2px solid;
+		border-radius: 18px;
+		background: white;
 		transition:
-			transform 0.25s,
-			box-shadow 0.25s;
+			transform 0.2s,
+			box-shadow 0.2s;
 	}
-
 	.tarjeta-area:hover {
-		transform: translateY(-7px);
-		box-shadow: 0 16px 35px #702cff20;
+		transform: translateY(-6px);
+		box-shadow: 0 12px 28px #702cff20;
 	}
-
+	.tarjeta-area.rosa {
+		border-color: #ff0095;
+		background: linear-gradient(145deg, #fff, #fff0f8);
+	}
+	.tarjeta-area.celeste {
+		border-color: #00cfff;
+		background: linear-gradient(145deg, #fff, #e8fbff);
+	}
+	.tarjeta-area.amarillo {
+		border-color: #ffc400;
+		background: linear-gradient(145deg, #fff, #fffbe5);
+	}
 	.icono-area {
 		display: grid;
-		width: 65px;
-		height: 65px;
 		place-items: center;
+		width: 62px;
+		height: 62px;
 		border-radius: 50%;
-		background: var(--acento);
+		background: #ff0095;
 		font-size: 2rem;
 	}
-
-	.numero-area {
-		margin-top: 1.2rem;
-		color: #8b6c9e;
-		font-size: 0.7rem;
-		font-weight: 900;
-		letter-spacing: 1px;
+	.celeste .icono-area {
+		background: #00cfff;
 	}
-
+	.amarillo .icono-area {
+		background: #ffc400;
+	}
 	.tarjeta-area h3 {
-		color: #281039;
-		font-size: 1.25rem;
+		margin: 0.9rem 0 0.5rem;
+		color: #251039;
+		font-size: 1.2rem;
+		text-transform: uppercase;
 	}
-
-	.descripcion-area {
-		color: #51445f;
-		line-height: 1.8;
+	.tarjeta-area p {
+		color: #392b55;
+		line-height: 1.6;
 	}
-
-	.enlace-area {
+	.tarjeta-area a {
 		display: inline-block;
-		margin-top: 0.7rem;
-		color: var(--acento);
+		margin-top: 0.5rem;
+		color: #e9007a;
 		font-weight: 900;
 		text-decoration: none;
 	}
-
-	.enlace-area span {
-		margin-left: 0.4rem;
+	.celeste a {
+		color: #008fb7;
 	}
-
-	.decoracion-area {
+	.amarillo a {
+		color: #a66b00;
+	}
+	.decoracion {
 		position: absolute;
 		top: 8px;
 		right: 15px;
-		color: var(--acento);
-		font-size: 2.8rem;
-		opacity: 0.35;
+		color: #ff0095;
+		font-size: 3rem;
+		opacity: 0.3;
 	}
-
+	.celeste .decoracion {
+		color: #00bde8;
+	}
+	.amarillo .decoracion {
+		color: #e6b800;
+	}
 	.banner {
 		display: grid;
 		grid-template-columns: auto 1.1fr 1fr;
 		align-items: center;
-		gap: 1.5rem;
-		margin: 2rem 0 4rem;
-		padding: 2.2rem;
-		border: 3px solid #ffffff;
-		border-radius: 25px;
-		background: linear-gradient(110deg, #702cff, #e600a9, #ff5538);
-		box-shadow: 0 15px 35px #702cff25;
+		gap: 1.2rem;
+		margin: 2rem 0 3rem;
+		padding: 1.7rem;
+		border: 3px solid white;
+		border-radius: 22px;
+		background: linear-gradient(110deg, #4214ff, #d900e8, #ff007f, #ffb800);
+		color: white;
 	}
-
-	.banner-icono {
+	.banner-corona {
+		color: #fff000;
 		font-size: 3.5rem;
 	}
-
-	.banner-titulo p {
-		color: #fff000;
-		font-size: 0.75rem;
-		font-weight: 900;
-		letter-spacing: 1px;
-	}
-
 	.banner-titulo h2 {
 		margin: 0;
-		color: #ffffff;
-		font-size: 1.65rem;
+		color: white;
+		font-size: clamp(1.3rem, 2.5vw, 2rem);
+		font-style: italic;
+		line-height: 1.15;
 	}
-
+	.banner-titulo h2 span {
+		display: block;
+		color: #fff000;
+	}
 	.banner-texto p {
-		color: #ffffff;
-		line-height: 1.8;
+		color: white;
+		line-height: 1.6;
 	}
-
-	.boton-blanco {
-		background: #ffffff;
-		color: #d90070;
-	}
-
-	@media (max-width: 850px) {
+	@media (max-width: 800px) {
 		.hero {
 			grid-template-columns: 1fr;
-			padding: 2.5rem;
+			padding: 2.2rem 1.4rem;
 		}
-
 		.hero-arte {
-			min-height: 280px;
+			min-height: 260px;
 		}
-
 		.microfono {
 			width: 190px;
-			height: 190px;
-			font-size: 6rem;
 		}
-
 		.encabezado-seccion {
 			grid-template-columns: 1fr;
-			gap: 0.8rem;
+			gap: 0.5rem;
 		}
-
 		.rejilla {
 			grid-template-columns: 1fr;
 		}
-
 		.banner {
 			grid-template-columns: auto 1fr;
 		}
-
 		.banner-texto {
 			grid-column: 1 / -1;
 		}
 	}
-
-	@media (max-width: 500px) {
-		.hero {
-			padding: 2rem 1.2rem;
-			border-radius: 22px;
-		}
-
+	@media (max-width: 480px) {
 		.hero h1 {
-			font-size: 2.45rem;
+			font-size: 2.4rem;
 			letter-spacing: -1px;
 		}
-
-		.hero-arte {
-			min-height: 230px;
-		}
-
-		.microfono {
-			width: 155px;
-			height: 155px;
-			font-size: 5rem;
-		}
-
-		.palabra-rap {
-			right: 5px;
-			bottom: 10px;
-		}
-
-		.sello {
-			right: 8px;
-			top: 8px;
-		}
-
-		.banner {
-			grid-template-columns: 1fr;
-			padding: 1.4rem;
-		}
-
-		.banner-texto {
-			grid-column: auto;
+		.frase {
+			font-size: 0.65rem;
+			gap: 0.45rem;
 		}
 	}
 </style>
