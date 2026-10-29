@@ -1,0 +1,139 @@
+---
+import Navbar from "../components/navbar.astro";
+import Footer from "../components/footer.astro";
+import Tarjeta from "../components/tarjeta.astro";
+import "../styles/global.css";
+---
+
+<Navbar />
+
+<main>
+    <section class="encabezado">
+        <span class="etiqueta">CONECTEMOS</span>
+        <h1>ENTRA EN CONTACTO</h1>
+        <p>
+            ¿Te gusta el freestyle? ¿Tienes alguna pregunta o idea? Completa el
+            formulario y comparte tu mensaje.
+        </p>
+    </section>
+
+    <form class="formulario" action="#" method="get">
+        <label for="nombre">Nombre</label>
+        <input
+            id="nombre"
+            name="nombre"
+            type="text"
+            placeholder="Tu nombre"
+            required
+        />
+
+        <label for="correo">Correo electrónico</label>
+        <input
+            id="correo"
+            name="correo"
+            type="email"
+            placeholder="tu-correo@ejemplo.com"
+            required
+        />
+
+        <label for="mensaje">Tu mensaje</label>
+        <textarea
+            id="mensaje"
+            name="mensaje"
+            rows="6"
+            placeholder="Escribe aquí tu mensaje..."
+            required></textarea>
+
+        <button type="submit">ENVIAR MENSAJE ↗</button>
+    </form>
+
+    <section class="extra">
+        <Tarjeta
+            categoria="FREESTYLECLUB"
+            titulo="La cultura se construye en comunidad"
+            descripcion="El rap es una forma de expresión artística que reúne creatividad, ritmo y diferentes voces."
+            enlace="/"
+        />
+    </section>
+</main>
+
+<Footer />
+
+<style>
+    .encabezado {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .etiqueta {
+        color: #67e8f9;
+        font-size: 0.8rem;
+        font-weight: bold;
+        letter-spacing: 3px;
+    }
+
+    .encabezado p {
+        max-width: 650px;
+        margin: 0 auto;
+        color: #d4d4d8;
+    }
+
+    .formulario {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        max-width: 650px;
+        margin: 0 auto;
+        padding: 30px;
+        background: #18181f;
+        border: 1px solid #3f3f46;
+        border-radius: 14px;
+    }
+
+    .formulario label {
+        margin-top: 8px;
+        color: #f4f4f5;
+        font-weight: bold;
+    }
+
+    .formulario input,
+    .formulario textarea {
+        width: 100%;
+        padding: 13px;
+        border: 1px solid #52525b;
+        border-radius: 6px;
+        background: #101014;
+        color: white;
+    }
+
+    .formulario input:focus,
+    .formulario textarea:focus {
+        outline: 2px solid #e879f9;
+        border-color: #e879f9;
+    }
+
+    .formulario button {
+        margin-top: 15px;
+        padding: 15px;
+        border: none;
+        border-radius: 6px;
+        background: #c026d3;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .formulario button:hover {
+        background: #a21caf;
+    }
+
+    .extra {
+        margin-top: 35px;
+    }
+
+    @media (max-width: 600px) {
+        .formulario {
+            padding: 20px;
+        }
+    }
+</style>

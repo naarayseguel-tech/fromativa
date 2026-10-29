@@ -1,0 +1,95 @@
+---
+import Navbar from "../components/navbar.astro";
+import Footer from "../components/footer.astro";
+import Tarjeta from "../components/tarjeta.astro";
+import "../styles/global.css";
+---
+
+<Navbar />
+
+<main>
+    <section class="presentacion">
+        <span class="etiqueta">NUESTRA CULTURA</span>
+        <h1>EL FREESTYLE<br />ES EXPRESIÓN.</h1>
+
+        <p>
+            FreestyleClub es un espacio dedicado a las batallas de rap, la
+            improvisación y la cultura hip-hop. Nuestro objetivo es acercar esta
+            disciplina a quienes quieren conocerla y comprender qué hay detrás
+            de cada enfrentamiento.
+        </p>
+
+        <p>
+            Una batalla no consiste solamente en rimar: también implica
+            escuchar, responder, dominar el ritmo y comunicar ideas frente al
+            público.
+        </p>
+    </section>
+
+    <section class="valores">
+        <h2>LOS PILARES DEL FREESTYLE</h2>
+
+        <div class="tarjetas">
+            <Tarjeta
+                categoria="01"
+                titulo="Creatividad"
+                descripcion="Transformar ideas en rimas originales y encontrar respuestas inesperadas."
+                enlace="/blog"
+            />
+
+            <Tarjeta
+                categoria="02"
+                titulo="Respeto"
+                descripcion="Competir con intensidad sin olvidar el valor de la convivencia y la expresión artística."
+                enlace="/contacto"
+            />
+        </div>
+    </section>
+</main>
+
+<Footer />
+
+<style>
+    .presentacion {
+        padding: 40px;
+        background: #18181f;
+        border-left: 4px solid #c026d3;
+        border-radius: 12px;
+    }
+
+    .etiqueta {
+        color: #67e8f9;
+        font-size: 0.8rem;
+        font-weight: bold;
+        letter-spacing: 3px;
+    }
+
+    .presentacion p {
+        max-width: 800px;
+        color: #d4d4d8;
+    }
+
+    .valores {
+        margin-top: 45px;
+    }
+
+    .valores h2 {
+        margin-bottom: 25px;
+    }
+
+    .tarjetas {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+    }
+
+    @media (max-width: 650px) {
+        .presentacion {
+            padding: 25px;
+        }
+
+        .tarjetas {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

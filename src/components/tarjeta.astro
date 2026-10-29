@@ -1,0 +1,69 @@
+---
+interface Props {
+    titulo: string;
+    descripcion: string;
+    enlace?: string;
+    categoria?: string;
+}
+
+const {
+    titulo,
+    descripcion,
+    enlace = "/blog",
+    categoria = "FREESTYLE",
+} = Astro.props;
+---
+
+<article class="tarjeta">
+    <span class="categoria">{categoria}</span>
+    <h2>{titulo}</h2>
+    <p>{descripcion}</p>
+    <a href={enlace}>Descubrir más →</a>
+</article>
+
+<style>
+    .tarjeta {
+        padding: 26px;
+        background: #18181f;
+        border: 1px solid #3f3f46;
+        border-radius: 14px;
+        box-shadow: 0 8px 24px #00000030;
+        transition:
+            transform 0.2s,
+            border-color 0.2s;
+    }
+
+    .tarjeta:hover {
+        transform: translateY(-5px);
+        border-color: #e879f9;
+    }
+
+    .categoria {
+        color: #e879f9;
+        font-size: 0.78rem;
+        font-weight: bold;
+        letter-spacing: 2px;
+    }
+
+    h2 {
+        margin: 14px 0;
+        color: #ffffff;
+    }
+
+    p {
+        color: #d4d4d8;
+        line-height: 1.7;
+    }
+
+    a {
+        display: inline-block;
+        margin-top: 10px;
+        color: #67e8f9;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+</style>

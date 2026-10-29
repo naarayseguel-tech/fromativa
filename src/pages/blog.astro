@@ -1,0 +1,136 @@
+---
+import Navbar from "../components/navbar.astro";
+import Footer from "../components/footer.astro";
+import Tarjeta from "../components/tarjeta.astro";
+import "../styles/global.css";
+---
+
+<Navbar />
+
+<main>
+    <header class="encabezado">
+        <span class="etiqueta">RIMAS Y CONOCIMIENTO</span>
+        <h1>EL BLOG DEL FREESTYLE</h1>
+        <p>Ideas, técnicas y cultura detrás de cada batalla.</p>
+    </header>
+
+    <section class="articulos" aria-label="Artículos sobre freestyle">
+        <article class="post">
+            <span class="categoria">ARTÍCULO 01 · TÉCNICA</span>
+            <h2>¿Qué es una batalla de freestyle?</h2>
+
+            <p>
+                Una batalla de freestyle es un enfrentamiento verbal en el que
+                dos o más MC improvisan rimas frente a un oponente y un público.
+                La creatividad, la capacidad de respuesta, el ritmo y la puesta
+                en escena son elementos importantes de la competencia.
+            </p>
+
+            <p>
+                Dependiendo del formato, los participantes pueden improvisar con
+                una base musical, responder a su rival o desarrollar ideas a
+                partir de una temática.
+            </p>
+
+            <time datetime="2026-10-28">28 de octubre de 2026</time>
+        </article>
+
+        <article class="post">
+            <span class="categoria">ARTÍCULO 02 · PREPARACIÓN</span>
+            <h2>¿Cómo mejorar en el freestyle?</h2>
+
+            <p>
+                La práctica constante ayuda a desarrollar vocabulario, fluidez y
+                seguridad. Escuchar diferentes estilos de rap, practicar con
+                palabras aleatorias y grabar improvisaciones son ejercicios
+                útiles para progresar.
+            </p>
+
+            <p>
+                También es importante aprender a escuchar al oponente, mantener
+                el ritmo y construir respuestas coherentes. La originalidad y la
+                práctica permiten desarrollar un estilo propio.
+            </p>
+
+            <time datetime="2026-10-28">28 de octubre de 2026</time>
+        </article>
+    </section>
+
+    <section class="recomendacion">
+        <Tarjeta
+            categoria="SIGUE EXPLORANDO"
+            titulo="¿Tienes algo que compartir?"
+            descripcion="Envíanos tus ideas, preguntas o sugerencias sobre la cultura del freestyle."
+            enlace="/contacto"
+        />
+    </section>
+</main>
+
+<Footer />
+
+<style>
+    .encabezado {
+        padding-bottom: 28px;
+        border-bottom: 1px solid #3f3f46;
+    }
+
+    .etiqueta {
+        color: #e879f9;
+        font-size: 0.8rem;
+        font-weight: bold;
+        letter-spacing: 3px;
+    }
+
+    .encabezado p {
+        color: #d4d4d8;
+    }
+
+    .articulos {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+        margin-top: 32px;
+    }
+
+    .post {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 28px;
+        background: #18181f;
+        border: 1px solid #3f3f46;
+        border-radius: 12px;
+    }
+
+    .post h2 {
+        color: #e879f9;
+    }
+
+    .post p {
+        color: #d4d4d8;
+    }
+
+    .categoria {
+        color: #67e8f9;
+        font-size: 0.75rem;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+    .post time {
+        margin-top: auto;
+        padding-top: 15px;
+        color: #a1a1aa;
+        font-size: 0.85rem;
+    }
+
+    .recomendacion {
+        margin-top: 32px;
+    }
+
+    @media (max-width: 700px) {
+        .articulos {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

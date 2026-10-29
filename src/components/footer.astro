@@ -1,0 +1,181 @@
+<footer class="pie-pagina">
+    <div class="contenido-footer">
+        <div class="marca">
+            <a href="/" class="logo">FREESTYLE<span>CLUB</span></a>
+            <p>
+                El rap nos une. La creatividad nos representa. Cada rima cuenta
+                una historia.
+            </p>
+        </div>
+
+        <div class="navegacion-footer">
+            <h2>Explora</h2>
+            <a href="/">Inicio</a>
+            <a href="/sobre-mi">Sobre mí</a>
+            <a href="/blog">Blog</a>
+            <a href="/contacto">Contacto</a>
+        </div>
+
+        <div class="comunidad-footer">
+            <h2>Vive el freestyle</h2>
+            <p>
+                Descubre la cultura hip-hop, las batallas y el talento de
+                quienes viven por las rimas.
+            </p>
+            <a class="boton-footer" href="/blog">Descubrir el blog ↗</a>
+        </div>
+    </div>
+
+    <div class="frase-footer">
+        <span>RITMO.</span>
+        <span>ACTITUD.</span>
+        <span>FREESTYLE.</span>
+    </div>
+
+    <div class="derechos">
+        <p>© 2026 Freestyle Club. Todos los derechos reservados.</p>
+        <a href="#inicio" aria-label="Volver al inicio de la página">
+            Volver arriba ↑
+        </a>
+    </div>
+</footer>
+
+<style>
+    .pie-pagina {
+        margin-top: 4rem;
+        padding: 3.5rem 7% 1.5rem;
+        background: linear-gradient(120deg, #210738, #42106b, #260c3f);
+        color: #ffffff;
+        border-top: 5px solid #ff007f;
+    }
+
+    .contenido-footer {
+        display: grid;
+        grid-template-columns: 1.3fr 0.7fr 1.2fr;
+        gap: 3rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .logo {
+        display: inline-block;
+        color: #ffffff;
+        font-size: 1.8rem;
+        font-weight: 900;
+        text-decoration: none;
+        letter-spacing: -1px;
+    }
+
+    .logo span {
+        color: #ff3cac;
+        margin-left: 5px;
+    }
+
+    .marca p,
+    .comunidad-footer p {
+        max-width: 350px;
+        color: #f0dfff;
+        line-height: 1.8;
+    }
+
+    .navegacion-footer,
+    .comunidad-footer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.7rem;
+    }
+
+    .navegacion-footer h2,
+    .comunidad-footer h2 {
+        margin: 0 0 0.5rem;
+        color: #ffe600;
+        font-size: 1.1rem;
+    }
+
+    .navegacion-footer a,
+    .derechos a {
+        color: #ffffff;
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+
+    .navegacion-footer a:hover,
+    .derechos a:hover {
+        color: #5be7ff;
+    }
+
+    .boton-footer {
+        display: inline-block;
+        margin-top: 0.5rem;
+        padding: 0.8rem 1.2rem;
+        border-radius: 30px;
+        background: linear-gradient(100deg, #ff007f, #ff6b00);
+        color: #ffffff;
+        font-weight: 800;
+        text-decoration: none;
+        transition: transform 0.2s;
+    }
+
+    .boton-footer:hover {
+        transform: translateY(-3px);
+    }
+
+    .frase-footer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        margin: 3rem 0 1.5rem;
+        padding: 1.2rem;
+        border-top: 1px solid #8045a6;
+        border-bottom: 1px solid #8045a6;
+        color: #ffe600;
+        font-size: 0.9rem;
+        font-weight: 900;
+        letter-spacing: 2px;
+    }
+
+    .frase-footer span:nth-child(2) {
+        color: #ff3cac;
+    }
+
+    .frase-footer span:nth-child(3) {
+        color: #5be7ff;
+    }
+
+    .derechos {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .derechos p {
+        color: #e4d3f4;
+        font-size: 0.85rem;
+    }
+
+    .derechos a {
+        font-weight: 700;
+    }
+
+    @media (max-width: 750px) {
+        .contenido-footer {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .pie-pagina {
+            padding: 2.5rem 6% 1.5rem;
+        }
+
+        .derechos {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+</style>
